@@ -49,4 +49,4 @@ J. bst_totalLength() is incorrect.
 
 Match each of the descriptions to one of the bst#.o files given to you in bad_impls/ directory.
 Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ...").
-#### 2. Choose two of the above "incorrect implementations" and explain the error in detail, and how you could fix it.
+#### 2. Choose two of the above "incorrect implementations" and explain the error in detail. Also describe how you could fix it.
