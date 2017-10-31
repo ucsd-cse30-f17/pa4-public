@@ -31,7 +31,7 @@ You will be writing helper functions in ARM assembly to help you implement bst_c
 ### 4. Testing your functions
 
 ### 5. README
-#### 1. We've provided the `.o` files for ten different implementations of the BST. Nine of these are incorrect implementations, and one is correct. Below are ten short descriptions of the errors, in no particular order.
+#### 1. We've provided the `.o` files for ten different implementations of `bst.c`. 9 of the 10 are incorrect implementations, and 1 is correct. Below are ten short descriptions of the errors, in no particular order.
 A. NO ERRORS.
 
 B. bst_add() is incorrect.
@@ -52,6 +52,7 @@ I. bst_contains() is incorrect.
 
 J. bst_totalLength() is incorrect.
 
-Match each of the descriptions to one of the bst#.o files given to you in bad_impls/ directory.
+Match each of the descriptions to one of the bst#.o files given to you in bad_impls/ directory. You should write good tests in part 4, and use those tests to figure out which files match up to which errors.
+
 Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ...").
 #### 2. Choose two of the above "incorrect implementations" and explain the error in detail. Also describe how you could fix it.
