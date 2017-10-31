@@ -7,7 +7,12 @@ The Github Classroom link for your starter code is here:
 ### 1. Background
 Reading
 ### 2. Functions to implement in C
-You will be implementing the following functions in the file named bst.c (we will provide a header file, bst.h, which contains the method signatures that you need).
+You will be implementing the following functions in the file named bst.c (we will provide a header file, bst.h, which contains the method signatures that you need). Please **do not modify** the signatures of any of the 9 functions listed below.
+
+However, you'll have some freedom with the signature of helper methods (for example, a helper method for bst_add or bst_remove might be helpful, and you can change the parameters / return type of these helper methods if you like). We've provided a couple example method signatures for helper functions, but you can comment out or modify the helper function signatures.
+
+In bst.c, we've provided the (correct) implementation of bst_max for you. The rest is up to you!
+
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
 #### 2.2 `void bst_add(struct BST* bst, char* key)`
 #### 2.3 `void bst_remove(struct BST* bst, char* key)`
