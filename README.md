@@ -22,3 +22,21 @@ You will be implementing the following functions in the file named bst.c (we wil
 You will be writing helper functions in ARM assembly to help you implement bst_count and bst_totalLength.
 #### 3.1 `int totalLength(struct BSTNode* node)`
 #### 3.2 `void count(struct BSTNode* node)`
+
+### 4. Testing your functions
+
+### 5. README
+###### 1. We've provided the `.o` files for ten different implementations of the BST. Nine of these are incorrect implementations, and one is correct. Below are ten short descriptions of the errors.
+A. NO ERRORS.
+B. bst_add() is incorrect.
+C. bst_add() is incorrect.
+D. bst_remove() is incorrect.
+E. bst_remove() is incorrect.
+F. bst_count() is incorrect.
+G. bst's structure is incorrect.
+H. bst_max() and bst_min() are incorrect.
+I. bst_contains() is incorrect.
+J. bst_totalLength() is incorrect.
+Match each of the descriptions to one of the bst#.o files given to you in bad_impls/ directory.
+Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ...").
+2. Choose two of the above "incorrect implementations" and explain the error in detail, and how you could fix it.
