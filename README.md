@@ -26,7 +26,7 @@ You will be writing helper functions in ARM assembly to help you implement bst_c
 ### 4. Testing your functions
 
 ### 5. README
-#### 1. We've provided the `.o` files for ten different implementations of the BST. Nine of these are incorrect implementations, and one is correct. Below are ten short descriptions of the errors.
+#### 1. We've provided the `.o` files for ten different implementations of the BST. Nine of these are incorrect implementations, and one is correct. Below are ten short descriptions of the errors, in no particular order.
 A. NO ERRORS.
 
 B. bst_add() is incorrect.
