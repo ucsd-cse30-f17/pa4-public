@@ -1,5 +1,5 @@
 # PA4: Binary Search Tree (in C and Assembly)
-In this assignment, you will write several C functions and two ARM assembly functions. To implement your binary search tree of strings, you will need to use dynamic memory allocation.
+In this assignment, you will write several C functions and two ARM assembly functions. The goal of this assignment is for you to implement Binary Search Tree class using dynamic memory allocation.
 
 ### 0. Getting Started
 The Github Classroom link for your starter code is here:
@@ -7,8 +7,43 @@ The Github Classroom link for your starter code is here:
 
 ### 1. Background
 #### 1.1 Binary Search Trees: A Review from CSE 12
+Let's review! A binary search tree (BST) is a data structure that's good for relatively fast search, insertion, and deletion. The nodes of a BST are connected via child and parent pointers (in this assignment, you will only have left and right pointers, no parent pointers).
+###### Properties of a BST
+In a BST, the node with no parent is called the root node. Each node has either 0, 1, or 2 children. A node is larger than its left child but smaller than its right child. (Left child's key < node's key < right child's key.) If any of these conditions are violated, then your tree is not a BST. 
+
 #### 1.2 Structs
+For this assignment, you will be implementing a BST "class". But wait! C is not an object-oriented language and does not have "classes" like Java or C++ - so how can we implement a data structure like a BST? Luckily, C does have a useful way to declare data types: using structs!
+
+A struct is essentially a data type (much like `int` or `float` or `char *`), which is defined by you. But C doesn't have some built in data type for a BST or a BSTNode; you'll have to do it. (Actually, we did it for you in `bst.h`, which is provided in the starter code. Note: do not modify `bst.h`!)
+
+A struct, in short, lets you as the programmer define a custom "data type" consisting of certain member variables, each of their own types (for example, `char *` or `BSTNode *`). Be careful! Just like any other variable declared in C, these member variables will not be initialized to 0 (unless you do so yourself, i.e. in bst_makeNode (a function you'll be writing), or with calloc(), which will be explained in section 1.3 of this writeup).
+
+Below are the structs we've declared for you in `bst.h`.
+
+```C
+    struct BST {
+       // member variables
+       struct BSTNode* root;
+    }
+    struct BSTNode {
+       // member variables
+       char* key;
+       BSTNode* left;
+       BSTNode* right;
+    }
+    
+    // Declaring a pointer to a BST
+    struct BST* bst;
+    // Declaring a pointer to a BSTNode
+    struct BSTNode* node;
+```
+Note that when you declare a variable of type struct, you'll need to declare it as `struct BST* bst` - if you forget to include `struct` in your variable declaration, for example, if you try to declare a variable as `BST* bst`, you'll get an error.
+
+To access the member of a struct, use the arrow operator `->`. For example, assuming you've declared a variable `struct BST* bst`, then you might access that BST's root like this: `bst->root`.
+
 #### 1.3 Dynamic Memory Allocation
+Recommended reading: C.8 in the textbook, and also refer to [TutorialsPoint](https://www.tutorialspoint.com/cprogramming/c_memory_management.htm). If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the pa4 starter code that is provided for you.
+
 #### 1.4 Valgrind
 
 ### 2. Functions to implement in C
@@ -73,3 +108,7 @@ Match each of the descriptions to one of the bst#.o files given to you in bad_im
 
 Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ...").
 #### 2. Choose two of the above "incorrect implementations." Give a detailed explanation of the error that is made in each one. Also describe how you could fix it.
+
+### 6. Commenting and style guide
+
+### 7. Handin
