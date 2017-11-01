@@ -151,7 +151,7 @@ void CuAssertPtrEquals(CuTest* tc, void* expected, void* actual);
 void CuAssertPtrNotNull(CuTest* tc, void* pointer);
 
 To use these assert functions, just call them by passing in tc as the first argument and the other required arguments.
-![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtEnGdnPtZE1CnvRCcBTbiKgHQfFZks5aArzJwA%3D%3D)
+![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtOWxrRt6SMjwZ-gwcLvVV5cKpvMBks5aA0Y7wA%3D%3D)
 Some Notes:
 If one assert fails, the rest in the same test function won't execute
 
