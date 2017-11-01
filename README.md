@@ -1,5 +1,5 @@
 # PA4: Binary Search Tree (in C and Assembly)
-In this assignment, you will write several C functions and two ARM assembly functions. The goal of this assignment is for you to implement Binary Search Tree class using dynamic memory allocation.
+In this assignment, you will write several C functions and two ARM assembly functions. The goal of this assignment is for you to implement and test a Binary Search Tree “class” using dynamic memory allocation.
 
 ## Table of Contents:
 0. [Getting Started](https://github.com/ucsd-cse30-f17/pa4-public#0-getting-started)
@@ -18,9 +18,9 @@ The Github Classroom link for your starter code is here:
 
 ### 1. Background
 #### 1.1 Binary Search Trees: A Review from CSE 12
-Let's review! A binary search tree (BST) is a data structure that's good for relatively fast search, insertion, and deletion. The nodes of a BST are connected via child and parent pointers (in this assignment, you will only have left and right pointers, no parent pointers).
+Let's review! A binary search tree (BST) is a data structure that's good for relatively fast average-case search, insertion, and deletion. The nodes of a BST are connected via child and parent pointers (in this assignment, you will only have left and right pointers, no parent pointers).
 ##### Properties of a BST
-In a BST, the node with no parent is called the root node. An empty tree is the tree without any nodes (no root node). Each node in the tree has either 0, 1, or 2 children. A node must be larger than its left subtree but smaller than its right subtree. (the key of any node in left subtree < node's key < the key of any node in right subtree.) If any of these conditions are violated, then your tree is not a BST. 
+In a BST, the node with no parent is called the root node. An empty tree is the tree without any nodes (no root node). Each node in the tree has either 0, 1, or 2 children. A node's key must be larger than all the values in its left subtree and smaller than all the values in its right subtree. If any of these conditions are violated, then your tree is not a BST. 
 
 ##### This is a valid binary search tree (whose nodes have `int` type keys)
               100
@@ -43,28 +43,28 @@ In a BST, the node with no parent is called the root node. An empty tree is the 
                                \
                                Yes
 #### 1.2 Structs
-For this assignment, you will be implementing a BST "class". But wait! C is not an object-oriented language and does not have "classes" like Java or C++ - so how can we implement a data structure like the BST? Luckily, C does have a useful way to declare custom data types:  structs!
+For this assignment, you will be implementing a BST "class". But wait! C does not have "classes" like Java or C++ - so how can we implement a data structure like the BST? Luckily, C does have a useful way to declare custom data types:  structs!
 
-A struct is essentially a data type (much like `int` or `float` or `char *`), which is defined by you. But C doesn't have some built in data type for a BST or a BSTNode; you'll have to do it. (Actually, we did it for you in `bst.h`, which is provided in the starter code. Note: do not modify `bst.h`!)
+A struct is language feature for defining new, compound data types, where “compound” means that it allows us to combine multiple pieces of data together into one value. We've defined the struct types for BST (which is just a reference to a root node), and for BSTNode, which makes up the tree itself. Note that each struct definition comes with a new type we can use. In this case, we'll be using the type `struct BSTNode*` a lot – that is, an address in memory where the data for a BSTNode is stored.
 
-A struct, in short, lets you as the programmer define a custom data type that wraps its member variables into one neat package. Member variables have their own types (for example, `char *` or `BSTNode *`). Be careful here! Just like any other variable declared in C, these member variables will not be initialized to 0 or NULL (unless you do so yourself, i.e. in bst_makeNode (a function you'll be writing), or with calloc(), which will be explained in section 1.3 of this writeup).
+Each field of the struct has its own types (for example, `char *` or `BSTNode *`). Be careful here! Just like any other variable declared in C, these fields will not be initialized to 0 or NULL by C. You'll be responsible for setting the values of these fields.
 
 Below are the structs we've declared for you in `bst.h`.
 
 ```C
     struct BST {
-       // member variables
+       // fields
        struct BSTNode* root;
     }
     struct BSTNode {
-       // member variables
+       // fields
        char* key;
        BSTNode* left;
        BSTNode* right;
     }
 ```
 
-Note that when you declare a variable of type struct, you'll need to declare it as `struct BST* bst` - if you forget to include `struct` in your variable declaration, for example, if you try to declare a variable as `BST* bst`, you'll get an error.
+Note that when you declare a variable of a struct type, you'll need to declare it as `struct BST* bst` - if you forget to include `struct` in your variable declaration, for example, if you try to declare a variable as `BST* bst`, you'll get an error.
 
 ```
     // Declaring a pointer to a BST
@@ -73,16 +73,13 @@ Note that when you declare a variable of type struct, you'll need to declare it 
     struct BSTNode* node;
 ```
 
-To access the member of a struct, use the arrow operator `->`. For example, assuming you've declared a variable `struct BST* bst`, then you might access that BST's root like this: `bst->root`.
+To access the member of a struct via a pointer, use the arrow operator `->`. For example, assuming you've declared a variable `struct BST* bst`, then you might access that BST's root like this: `bst->root`.
 
 #### 1.3 Dynamic Memory Allocation
 Recommended reading: Section [C.8](http://booksite.elsevier.com/9780128000564/content/APP0C_C_Programming.pdf) in the textbook. For extra help, you can also refer to [TutorialsPoint](https://www.tutorialspoint.com/cprogramming/c_memory_management.htm).
 
-If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code.
+If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code. The lectures from November 1 and 3 cover the use of dynamic allocation on structs in detail. For this programming assignment, you'll need to both allocate things on the Heap (using `malloc` or `calloc`), and then to deallocate them (using `free`).
 
-As a brief summary, dynamic memory allocation (which allocates memory in the Heap) is useful because it allows you to work with (add, delete, modify) things in memory at runtime. For this programming assignment, we're asking you to use dynamic memory allocation to allocate things on the Heap (using `malloc` or `calloc`), and then to deallocate them (using `free`).
-
-Also, refer to the podcast from the Wednesday, Nov. 1 lecture.
 
 #### 1.4 Valgrind
 But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
@@ -145,18 +142,18 @@ Again, **do not** modify the signatures of any of the methods declared in `bst.h
 
 However, you will have some freedom with choosing the signatures of helper methods. Some examples of valid helper method signatures are commented out at the top of `bst.c` - feel free to use these. For example, a helper method for bst_add or bst_remove might be helpful, and you can change the parameters / return type of these helper methods if you'd like.
 
-In `bst.c`, we've provided the (correct) implementation of bst_max for you. The rest is up to you!
+In `bst.c`, we've provided the (correct) implementation of `bst_max` for you. The rest is up to you!
 
 ### 3. Functions to implement in Assembly
-You will be writing helper functions in ARM assembly, to help you implement bst_count and bst_totalLength.
+You will be writing helper functions in ARM assembly, to help you implement `bst_count` and `bst_totalLength`.
 #### 3.1 `int totalLength(struct BSTNode* node)`
-#### 3.2 `void count(struct BSTNode* node)`
+#### 3.2 `int count(struct BSTNode* node)`
 
 ### 4. Testing your functions
 It is really important to write good tests to detect errors in your code and make sure they work as expected.
 You will also need your tests to help you figure out what is wrong in the buggy implementations later for the README question. 
-#### You will be graded on your tests based on how many bad implementations your test can catch described in the README
-For this assignment, you need to use the framework for C called CuTest to write tests. We provide you the following:
+#### You will be graded on your tests based on how many bad implementations your test can catch, described below
+For this assignment, you need to use a simple framework for C called CuTest to write tests. We provide you the following:
 cutest: This is the folder that contains all that you need to use CuTest. 
 runtests.c: The main driver to run all tests. 
 test.c: The file where all your tests should be in.
@@ -182,46 +179,59 @@ To use these assert functions, just call them by passing in tc as the first argu
 
 ![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtOWxrRt6SMjwZ-gwcLvVV5cKpvMBks5aA0Y7wA%3D%3D)
 
-Some Notes:
-If one assert fails, the rest in the same test function won't execute
+An important note: If one assert fails, the rest in the same test function won't execute.
 
-### 5. Compiling your code
-We've provided a Makefile for you that should make the compilation process simple. Please do not modify the Makefile, but feel free to refer to it.
+#### Thoroughly Testing
 
-Once you've written `bst.c`, you can try to compile your code and run your tests using the following command:
+We've provided the `.o` files for ten different implementations of `bst.c` that we wrote ourselves. One of them is correct, and the other 9 have mistakes.
+
+To make sure your tests are thorough, you will run your tests against these bad implementations to make sure your tests catch each of the bad implementations, and succeed on the correct one.
+
+In order to run against a bad implementation
+
+FILL
+
+Below are 10 descriptions of the implementations. These intentionally *do not* correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
+
+A. NO ERRORS.
+B. Builds a BST with no right children.
+C. Does not always add a new node.
+D. Removes incorrect node(s).
+E. Does not always remove node.
+F. Structure is right but count is wrong.
+G. Violates a fundamental property of BSTs (is backwards).
+H. Incorrectly identifies smallest/largest nodes in the tree.
+I. Search succeeds when it should not
+J. Total length doesn't sum the lengths of all the nodes' keys.
+
+
+
+
+### 5. The Makefile
+
+We've provided a `Makefile` for you that should make the compilation process simple. Please do not modify the Makefile, but feel free to refer to it. The `test` and `vtest` commands above are one main way you'll interact with the assignment.
+
+The Makefile is compiling your code into an object file called `bst.o`, which you can compile on its own with:
 
 ```
     make bst.o
 ```
 
-To recompile, first run `make clean`, and then run `make bst.o` (or if you've written tests and would like to run them, use `make test`) again. To test with valgrind, run `make vtest`.
+It can occasionally be useful to run `make clean`, and then run `make test` or `make vtest` afresh, if the state in your working directory behaves oddly. `make clean` deletes any built files so that the program can be rebuilt from scratch.
 
 ### 6. README
-#### 1. We've provided the `.o` files for ten different implementations of `bst.c`. 9 of the 10 are incorrect implementations, and 1 is correct. Below are ten short descriptions of the errors, in no particular order.
-A. NO ERRORS.
 
-B. Builds a BST with no right children.
-
-C. Does not always add a new node.
-
-D. Removes incorrect node(s).
-
-E. Does not always remove node.
-
-F. Structure is right but count is wrong.
-
-G. Violates a fundamental property of BSTs (is backwards).
-
-H. Incorrectly identifies smallest/largest nodes in the tree.
-
-I. Search succeeds when it should not.
-
-J. Total length doesn't sum the lengths of all the nodes' keys.
+#### 1. Understanding bad implementations
 
 Match each of the descriptions to one of the bst#.o files given to you in bad_impls/ directory. You should write good tests in part 4, and use those tests to figure out which files match up to which errors.
 
-Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ...").
-#### 2. Choose two of the above "incorrect implementations." Give a detailed explanation of the error that is made in each one. Also describe how you could fix it.
+Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ..."), where the first corresponds to bst1, the second to bst2, and so on.
+
+
+#### 2. Describing bad implementations
+
+Choose two of the above "incorrect implementations." Speculate on the mistake in the code that could have led to the mistake in the implementation. How might it be fixed?
+
 
 ### 7. Commenting and style guide
 For ARM Assembly code, please refer to PA3's commenting and style guide. For C code, 
@@ -231,6 +241,15 @@ Commit and push the _ files to the Github repository that was created for you by
 Your handin should include:
 * `bst.c` - which should contain your working implementation of the BST data structure
 * `test.c` - which should contain a good set of test cases that catch (at least) all the errors in the bad implementations of a bst that we provided for you
+* `totalLength.s` – which should contain your implementation in ARM assembly of `totalLength` as specified above
+* `count.s` – which should contain your implementation in ARM assembly of `count` as specified above
 * A single `README.txt` file - which should contain the answers to the README questions above
 
-Note that you do not need to turn in `.o` files.
+Note that you do not need to turn in `.o` files, and the `.gitignore` file makes it so they should be ignored in your submission.
+
+### 9. Grading
+
+- 25%: Quality of tests, determined by the # of bad implementations caught, and whether they pass on the correct implementation
+- 20%: README
+- 20%: Assembly functions `totalLength` and `count`
+- 35$: Distributed among the BST functions
