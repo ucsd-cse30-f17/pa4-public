@@ -155,8 +155,16 @@ To use these assert functions, just call them by passing in tc as the first argu
 Some Notes:
 If one assert fails, the rest in the same test function won't execute
 
+### 5. Compiling your code
+We've provided a Makefile for you that should make the compilation process simple. Please do not modify the Makefile, but feel free to refer to it.
 
-### 5. README
+Once you've written `bst.c` and also written some tests in `test.c`, you can try to compile your code and run your tests using the following command:
+
+```
+    make test
+```
+
+### 6. README
 #### 1. We've provided the `.o` files for ten different implementations of `bst.c`. 9 of the 10 are incorrect implementations, and 1 is correct. Below are ten short descriptions of the errors, in no particular order.
 A. NO ERRORS.
 
@@ -183,10 +191,10 @@ Match each of the descriptions to one of the bst#.o files given to you in bad_im
 Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ...").
 #### 2. Choose two of the above "incorrect implementations." Give a detailed explanation of the error that is made in each one. Also describe how you could fix it.
 
-### 6. Commenting and style guide
+### 7. Commenting and style guide
 For ARM Assembly code, please refer to PA3's commenting and style guide. For C code, 
 
-### 7. Handin
+### 8. Handin
 Commit and push the _ files to the Github repository that was created for you by 11:59pm on Thursday, November 9. You can push up to one day late for a 20% penalty. After you push, make sure to check on Github that the files are actually there. We will mark all of the student repositories for grading a few minutes after midnight and grade precisely what is there.
 Your handin should include:
 * `bst.c`
