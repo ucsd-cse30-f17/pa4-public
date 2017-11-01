@@ -92,7 +92,6 @@ But how do you check to make sure that you've allocated and deallocated memory p
 1. Memory allocated but not freed
 
 ![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
-
    * Pay attention to the HEAP SUMMARY: "in use at exit: 794 bytes in 94 blocks" and "total heap usage: 129 allocs, 35 frees, 9,682 bytes allocated". You want to see the same number of allocs as there are frees, and 0 bytes in use at exit.
    
    * Below the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that memory was allocated for a string in strdup (in bst_makeNode), but was never freed (thus causing a memory leak to occur).
@@ -100,7 +99,6 @@ But how do you check to make sure that you've allocated and deallocated memory p
 2. Deallocating memory after it has already been deallocated
 
 ![freed_too_many](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind2.png?token=AXdWtGoX6nELPCz_0dkv1bQiXs4dooexks5aArlhwA%3D%3D) 
-
    * Pay attention to the HEAP SUMMARY: "in use at exit: 0 bytes in 0 blocks" and "total heap usage: 44 allocs, 46 frees, 371 bytes allocated". You want to see the same number of allocs as there are frees.
    
    * Along with the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that there was an "invalid free() / delete / delete[] / realloc()" line 140 in `main.c`.
