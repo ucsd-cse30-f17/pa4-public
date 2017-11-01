@@ -33,6 +33,7 @@ This function should sum the lengths of all the keys in bst, and return this val
 #### 2.9 `void bst_deleteTree(struct BST* bst)`
 This function deletes the whole bst tree. Think about what was dynamically allocated in the tree, and be sure to deallocate it. You can use valgrind to confirm that you have no memory leaks.
 
+### IMPORTANT NOTE:
 Again, **do not** modify the signatures of any of the methods declared in `bst.h`.
 
 However, you will have some freedom with choosing the signatures of helper methods. Some examples of valid helper method signatures are commented out at the top of `bst.c` - feel free to use these. For example, a helper method for bst_add or bst_remove might be helpful, and you can change the parameters / return type of these helper methods if you'd like.
