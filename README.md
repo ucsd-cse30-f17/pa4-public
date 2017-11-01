@@ -1,11 +1,15 @@
 # PA4: Binary Search Tree (in C and Assembly)
-In this assignment, you will write several C functions and two ARM assembly functions. To implement your binary search tree, you will need to use dynamic memory allocation.
+In this assignment, you will write several C functions and two ARM assembly functions. To implement your binary search tree of strings, you will need to use dynamic memory allocation.
+
 ### 0. Getting Started
 The Github Classroom link for your starter code is here:
 [insert link here](http://)
 
 ### 1. Background
-Reading
+#### 1.1 Structs
+#### 1.2 Dynamic Memory Allocation
+#### 1.3 Valgrind
+
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named bst.c (we will provide a header file, bst.h, which contains the method signatures that you need). Please **do not modify** the signatures of any of the 9 functions listed below.
 
@@ -14,17 +18,26 @@ However, you'll have some freedom with the signature of helper methods (for exam
 In bst.c, we've provided the (correct) implementation of bst_max for you. The rest is up to you!
 
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
+This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*.
 #### 2.2 `void bst_add(struct BST* bst, char* key)`
+This function should add a BSTNode* with the specified key to bst. Do nothing if a node with the same key already exists in the tree.
 #### 2.3 `void bst_remove(struct BST* bst, char* key)`
+This function should remove the BSTNode* with the specified key from bst. Do nothing if a node with this key does not exist in the tree.
 #### 2.4 `int bst_contains(struct BST* bst, char* key)`
+This function should search the tree for a node with the specified key. Return 1 if the node is found; otherwise, return 0.
 #### 2.5 `char* bst_max(struct BST* bst)`
+This function should return the key of the largest node in the tree (that is, the node with the largest key).
 #### 2.6 `char* bst_min(struct BST* bst)`
+This function should return the key of the smallest node in the tree (that is, the node with the smallest key).
 #### 2.7 `int bst_count(struct BST* bst)`
+This function should return the number of nodes in the tree.
 #### 2.8 `int bst_totalLength(struct BST* bst)`
+This function should return the total length of all the strings in the bst.
 #### 2.9 `void bst_deleteTree(struct BST* bst)`
+This function deletes the whole bst tree. Think about what was dynamically allocated in the tree, and be sure to deallocate it. You can use valgrind to confirm that you have no memory leaks.
 
 ### 3. Functions to implement in Assembly
-You will be writing helper functions in ARM assembly to help you implement bst_count and bst_totalLength.
+You will be writing helper functions in ARM assembly, to help you implement bst_count and bst_totalLength.
 #### 3.1 `int totalLength(struct BSTNode* node)`
 #### 3.2 `void count(struct BSTNode* node)`
 
@@ -38,9 +51,9 @@ B. `bst_add()` is incorrect.
 
 C. `bst_add()` is incorrect.
 
-D. `bst_remove()` is incorrect.
+D. `bst_remove()` is incorrect (removes incorrect node(s)).
 
-E. `bst_remove()` is incorrect.
+E. `bst_remove()` is incorrect (does not always remove node).
 
 F. `bst_count()` is incorrect.
 
