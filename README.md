@@ -79,6 +79,8 @@ If you need an idea of how dynamic memory allocation for a struct might work, re
 
 As a brief summary, dynamic memory allocation (which allocates memory in the Heap) is useful because it allows you to work with (add, delete, modify) things in memory at runtime. For this programming assignment, we're asking you to use dynamic memory allocation to allocate things on the Heap (using `malloc` or `calloc`), and then to deallocate them (using `free`).
 
+Also, refer to the podcast from the Wednesday, Nov. 1 lecture.
+
 #### 1.4 Valgrind
 But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
 
