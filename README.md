@@ -152,7 +152,8 @@ You will be writing helper functions in ARM assembly, to help you implement bst_
 ### 4. Testing your functions
 It is really important to write good tests to detect errors in your code and make sure they work as expected.
 You will also need your tests to help you figure out what is wrong in the buggy implementations later for the README question. 
-For this assignment, we highly recommend that you use the framework for C called CuTest to write tests. We provide you the following:
+#### You will be graded on your tests based on how many bad implementations your test can catch described in the README
+For this assignment, you need to use the framework for C called CuTest to write tests. We provide you the following:
 cutest: This is the folder that contains all that you need to use CuTest. 
 runtests.c: The main driver to run all tests. 
 test.c: The file where all your tests should be in.
@@ -174,7 +175,9 @@ void CuAssertPtrEquals(CuTest* tc, void* expected, void* actual);
 void CuAssertPtrNotNull(CuTest* tc, void* pointer);
 
 To use these assert functions, just call them by passing in tc as the first argument and the other required arguments.
+
 ![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtOWxrRt6SMjwZ-gwcLvVV5cKpvMBks5aA0Y7wA%3D%3D)
+
 Some Notes:
 If one assert fails, the rest in the same test function won't execute
 
