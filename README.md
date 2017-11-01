@@ -197,8 +197,8 @@ For ARM Assembly code, please refer to PA3's commenting and style guide. For C c
 ### 8. Handin
 Commit and push the _ files to the Github repository that was created for you by 11:59pm on Thursday, November 9. You can push up to one day late for a 20% penalty. After you push, make sure to check on Github that the files are actually there. We will mark all of the student repositories for grading a few minutes after midnight and grade precisely what is there.
 Your handin should include:
-* `bst.c`
-* test code
-* A single `README.txt` file that contains the answers to the README questions above.
+* `bst.c` - which should contain your working implementation of the BST data structure
+* `test.c` - which should contain a good set of test cases that catch (at least) all the errors in the bad implementations of a bst that we provided for you
+* A single `README.txt` file - which should contain the answers to the README questions above
 
-Note that you do not need to turn in the `.o` files.
+Note that you do not need to turn in `.o` files.
