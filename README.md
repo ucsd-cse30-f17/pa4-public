@@ -32,11 +32,11 @@ In a BST, the node with no parent is called the root node. An empty tree is the 
                                \
                                Yes
 #### 1.2 Structs
-For this assignment, you will be implementing a BST "class". But wait! C is not an object-oriented language and does not have "classes" like Java or C++ - so how can we implement a data structure like a BST? Luckily, C does have a useful way to declare data types: using structs!
+For this assignment, you will be implementing a BST "class". But wait! C is not an object-oriented language and does not have "classes" like Java or C++ - so how can we implement a data structure like the BST? Luckily, C does have a useful way to declare custom data types:  structs!
 
 A struct is essentially a data type (much like `int` or `float` or `char *`), which is defined by you. But C doesn't have some built in data type for a BST or a BSTNode; you'll have to do it. (Actually, we did it for you in `bst.h`, which is provided in the starter code. Note: do not modify `bst.h`!)
 
-A struct, in short, lets you as the programmer define a custom "data type" consisting of certain member variables, each of their own types (for example, `char *` or `BSTNode *`). Be careful! Just like any other variable declared in C, these member variables will not be initialized to 0 (unless you do so yourself, i.e. in bst_makeNode (a function you'll be writing), or with calloc(), which will be explained in section 1.3 of this writeup).
+A struct, in short, lets you as the programmer define a custom data type that wraps its member variables into one neat package. Member variables have their own types (for example, `char *` or `BSTNode *`). Be careful here! Just like any other variable declared in C, these member variables will not be initialized to 0 or NULL (unless you do so yourself, i.e. in bst_makeNode (a function you'll be writing), or with calloc(), which will be explained in section 1.3 of this writeup).
 
 Below are the structs we've declared for you in `bst.h`.
 
@@ -62,12 +62,14 @@ Note that when you declare a variable of type struct, you'll need to declare it 
 To access the member of a struct, use the arrow operator `->`. For example, assuming you've declared a variable `struct BST* bst`, then you might access that BST's root like this: `bst->root`.
 
 #### 1.3 Dynamic Memory Allocation
-Recommended reading: C.8 in the textbook. For extra help, you can also refer to [TutorialsPoint](https://www.tutorialspoint.com/cprogramming/c_memory_management.htm).
+Recommended reading: Section [C.8](http://booksite.elsevier.com/9780128000564/content/APP0C_C_Programming.pdf) in the textbook. For extra help, you can also refer to [TutorialsPoint](https://www.tutorialspoint.com/cprogramming/c_memory_management.htm).
 
 If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code.
 
 #### 1.4 Valgrind
-But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in.
+But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
+
+    make vtest
 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
