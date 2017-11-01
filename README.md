@@ -193,6 +193,7 @@ make testbst%  (% is 1-10)
 
 Below are 10 descriptions of the implementations. These intentionally *do not* correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
 
+```
 A. NO ERRORS.
 B. Builds a BST with no right children.
 C. Does not always add a new node.
@@ -203,9 +204,7 @@ G. Violates a fundamental property of BSTs (is backwards).
 H. Incorrectly identifies smallest/largest nodes in the tree.
 I. Search succeeds when it should not
 J. Total length doesn't sum the lengths of all the nodes' keys.
-
-
-
+```
 
 ### 5. The Makefile
 
@@ -234,7 +233,9 @@ Choose two of the above "incorrect implementations." Speculate on the mistake in
 
 
 ### 7. Commenting and style guide
-For ARM Assembly code, please refer to PA3's commenting and style guide. For C code, 
+For ARM Assembly code, please refer to PA3's commenting and style guide in the [PA3 Writeup](https://github.com/ucsd-cse30-f17/pa3-support/blob/master/description.pdf).
+
+For C code, you should write method headers and comment roughly every block of code. Inline comments are also fine. 
 
 ### 8. Handin
 Commit and push the _ files to the Github repository that was created for you by 11:59pm on Thursday, November 9. You can push up to one day late for a 20% penalty. After you push, make sure to check on Github that the files are actually there. We will mark all of the student repositories for grading a few minutes after midnight and grade precisely what is there.
