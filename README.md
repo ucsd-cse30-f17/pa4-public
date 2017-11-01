@@ -20,7 +20,7 @@ The Github Classroom link for your starter code is here:
 
 ### 1. Background
 #### 1.1 Binary Search Trees: A Review from CSE 12
-Let's review! A binary search tree (BST) is a data structure that's good for relatively fast average-case search, insertion, and deletion. The nodes of a BST are connected via child and parent pointers (in this assignment, you will only have left and right pointers, no parent pointers).
+Let's review! A binary search tree (BST) is a data structure that, hopefully, you've seen before. A BST has a pretty good average-case running time for search, insertion, and deletion (O(log(n)). The nodes of a BST are connected via child and parent pointers (in this assignment, you will only have left and right pointers, no parent pointers).
 ##### Properties of a BST
 In a BST, the node with no parent is called the root node. An empty tree is the tree without any nodes (no root node). Each node in the tree has either 0, 1, or 2 children. A node's key must be larger than all the values in its left subtree and smaller than all the values in its right subtree. If any of these conditions are violated, then your tree is not a BST. 
 
