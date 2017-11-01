@@ -189,7 +189,9 @@ To make sure your tests are thorough, you will run your tests against these bad 
 
 In order to run against a bad implementation
 
-FILL
+```
+make testbst%  (% is 1-10)
+```
 
 Below are 10 descriptions of the implementations. These intentionally *do not* correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
 
