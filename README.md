@@ -21,7 +21,7 @@ In a BST, the node with no parent is called the root node. An empty tree is the 
      10  51   53  191 205  300
  
 
-##### This is a valid binary search tree (whose nodes have `char *` type keys) - you'll be implementing a BST whose nodes hold `char *`s
+##### This is a valid binary search tree (whose nodes have `char *` type keys, like the bst you'll be implementing)
               Hello
            /         \
         Dog          Joke
@@ -69,7 +69,13 @@ If you need an idea of how dynamic memory allocation for a struct might work, re
 #### 1.4 Valgrind
 But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
 
+```
     make vtest
+```
+##### Here are some of the memory errors that you might see during this PA, which valgrind will help you catch:
+
+1. Segfaults (for example, trying to deallocate memory after it has already been deallocated)
+2. Memory allocated but not freed
 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
