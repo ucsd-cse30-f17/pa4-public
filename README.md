@@ -9,7 +9,16 @@ The Github Classroom link for your starter code is here:
 #### 1.1 Binary Search Trees: A Review from CSE 12
 Let's review! A binary search tree (BST) is a data structure that's good for relatively fast search, insertion, and deletion. The nodes of a BST are connected via child and parent pointers (in this assignment, you will only have left and right pointers, no parent pointers).
 ##### Properties of a BST
-In a BST, the node with no parent is called the root node. Each node has either 0, 1, or 2 children. A node is larger than its left child but smaller than its right child. (Left child's key < node's key < right child's key.) If any of these conditions are violated, then your tree is not a BST. 
+In a BST, the node with no parent is called the root node. An empty tree is the tree without any nodes (no root node). Each node in the tree has either 0, 1, or 2 children. A node must be larger than its left child but smaller than its right child. (Left child's key < node's key < right child's key.) If any of these conditions are violated, then your tree is not a BST. 
+
+    This is a valid binary search tree:
+             100
+           /     \
+          50       200
+         /  \     /    \
+       20   52   190    210
+       /   /  \   \     /  \
+      10  51  53  191  205  300
 
 #### 1.2 Structs
 For this assignment, you will be implementing a BST "class". But wait! C is not an object-oriented language and does not have "classes" like Java or C++ - so how can we implement a data structure like a BST? Luckily, C does have a useful way to declare data types: using structs!
