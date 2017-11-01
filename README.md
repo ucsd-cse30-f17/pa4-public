@@ -185,13 +185,21 @@ We've provided the `.o` files for ten different implementations of `bst.c` that 
 
 To make sure your tests are thorough, you will run your tests against these bad implementations to make sure your tests catch each of the bad implementations, and succeed on the correct one.
 
-In order to run against a bad implementation
+In order to run against a bad implementation, you can run:
 
 ```
 make testbst%  (% is 1-10)
 ```
 
-Below are 10 descriptions of the implementations. These intentionally *do not* correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
+If you want to run against a bad implementation using `valgrind`, by analogy to `vtest` above, you can use
+
+```
+make vtestbst%
+```
+
+The effects of this are like replacing your `bst.c`, `count.s`, and `totalLength.s` with our implementations, and running your tests against them.
+
+Below are 10 descriptions of the implementations. These intentionally **do not** correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
 
 ```
 A. NO ERRORS.
