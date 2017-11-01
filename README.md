@@ -6,9 +6,10 @@ The Github Classroom link for your starter code is here:
 [insert link here](http://)
 
 ### 1. Background
-#### 1.1 Structs
-#### 1.2 Dynamic Memory Allocation
-#### 1.3 Valgrind
+#### 1.1 Binary Search Trees: A Review from CSE 12
+#### 1.2 Structs
+#### 1.3 Dynamic Memory Allocation
+#### 1.4 Valgrind
 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
@@ -51,7 +52,7 @@ A. NO ERRORS.
 
 B. `bst_add()` is incorrect.
 
-C. `bst_add()` is incorrect.
+C. `bst_add()` is incorrect (and violates order BST property).
 
 D. `bst_remove()` is incorrect (removes incorrect node(s)).
 
