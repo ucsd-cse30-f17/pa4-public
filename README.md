@@ -2,13 +2,15 @@
 In this assignment, you will write several C functions and two ARM assembly functions. The goal of this assignment is for you to implement Binary Search Tree class using dynamic memory allocation.
 
 ## Table of Contents:
-[Getting Started](http://)
-[Background](http://)
-[Functions to implement in C](http://)
-[Functions to implement in Assembly](http://)
-[Testing your code](http://)
-[Compiling your code and running tests](http://)
-
+0. [Getting Started](https://github.com/ucsd-cse30-f17/pa4-public#0-getting-started)
+1. [Background](https://github.com/ucsd-cse30-f17/pa4-public#1-background)
+2. [Functions to implement in C](https://github.com/ucsd-cse30-f17/pa4-public#2-functions-to-implement-in-c)
+3. [Functions to implement in Assembly](https://github.com/ucsd-cse30-f17/pa4-public#3-functions-to-implement-in-assembly)
+4. [Testing your functions](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions)
+5. [Compiling your code](https://github.com/ucsd-cse30-f17/pa4-public#5-compiling-your-code)
+6. [README](https://github.com/ucsd-cse30-f17/pa4-public#6-readme)
+7. [Commenting and style guide](https://github.com/ucsd-cse30-f17/pa4-public#7-commenting-and-style-guide)
+8. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#8-handin)
 
 ### 0. Getting Started
 The Github Classroom link for your starter code is here:
