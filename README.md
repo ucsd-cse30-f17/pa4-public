@@ -12,7 +12,7 @@ In this assignment, you will write several C functions and two ARM assembly func
 7. [README](https://github.com/ucsd-cse30-f17/pa4-public#7-readme)
 8. [Commenting and style guide](https://github.com/ucsd-cse30-f17/pa4-public#8-commenting-and-style-guide)
 9. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#9-handin)
-10. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#9-handin)
+10. [Grading](https://github.com/ucsd-cse30-f17/pa4-public#10-grading)
 
 ### 0. Getting Started
 The Github Classroom link for your starter code is here:
