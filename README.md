@@ -87,7 +87,11 @@ Refer to [Section 5]() (on Valgrind) to read about testing yoru code for memory 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
 
-You'll want to start from `bst_makeNode`, as the rest of your BST will depend on this function. (For example, you'll need `bst_makeNode` for your implementation of `bst_add`.) You should test each method you write as you go: refer to [section 4, Testing](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions). Using unit tests (testing each method individually) is a good idea. Once you’ve implemented `bst_makeNode()`, test it. Then, you'll want to write `bst_add()`, after which you can actually build some trees in your tester. After that, you can write and start testing the other methods.
+You'll want to start from `bst_makeNode`, as the rest of your BST will depend on this function. (For example, you'll need `bst_makeNode` for your implementation of `bst_add`.) You should test each method you write as you go: refer to [section 4, Testing](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions). 
+
+Using unit tests (testing each method individually) is a good idea. Once you’ve implemented `bst_makeNode()`, test it. Then you should be able to test your other functions.
+
+You can manually create a tree in your tester, without calling on any functions other than `bst_makeNode`. Doing this means that even if your `bst_add` is buggy, you'll still be able to test other methods.
 
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
 This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*.
