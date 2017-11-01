@@ -152,7 +152,9 @@ void CuAssertPtrNotNull(CuTest* tc, void* pointer);
 
 To use these assert functions, just call them by passing in tc as the first argument and the other required arguments.
 ![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtEnGdnPtZE1CnvRCcBTbiKgHQfFZks5aArzJwA%3D%3D)
-Some Note:
+Some Notes:
+If one assert fails, the rest in the same test function won't execute
+
 
 ### 5. README
 #### 1. We've provided the `.o` files for ten different implementations of `bst.c`. 9 of the 10 are incorrect implementations, and 1 is correct. Below are ten short descriptions of the errors, in no particular order.
