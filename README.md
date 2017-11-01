@@ -159,20 +159,16 @@ runtests.c: The main driver to run all tests.
 test.c: The file where all your tests should be in.
 
 You only need to modify your test.c to add more tests.
-Your test should have the signature like: void Test<Functiontested>_<TestInput>(CuTest *tc){}
+
+Your test should have a signature like this: `void Test<Functiontested>_<TestInput>(CuTest *tc){}`
   
 Here is the list of assert functions that CuTest provides:
-void CuAssert(CuTest* tc, char* message, int condition);
-
-void CuAssertTrue(CuTest* tc, int condition);
-
-void CuAssertStrEquals(CuTest* tc, char* expected, char* actual);
-
-void CuAssertIntEquals(CuTest* tc, int expected, int actual);
-
-void CuAssertPtrEquals(CuTest* tc, void* expected, void* actual);
-
-void CuAssertPtrNotNull(CuTest* tc, void* pointer);
+    void CuAssert(CuTest* tc, char* message, int condition);
+    void CuAssertTrue(CuTest* tc, int condition);
+    void CuAssertStrEquals(CuTest* tc, char* expected, char* actual);
+    void CuAssertIntEquals(CuTest* tc, int expected, int actual);
+    void CuAssertPtrEquals(CuTest* tc, void* expected, void* actual);
+    void CuAssertPtrNotNull(CuTest* tc, void* pointer);
 
 To use these assert functions, just call them by passing in tc as the first argument and the other required arguments.
 [More info about CuTest](https://github.com/ennorehling/cutest)
