@@ -76,6 +76,7 @@ But how do you check to make sure that you've allocated and deallocated memory p
 
 1. Segfaults (for example, trying to deallocate memory after it has already been deallocated)
 2. Memory allocated but not freed
+![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtFKSCq8k_knQdlnMGF0ATetIP3Zyks5aArTiwA%3D%3D)
 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
