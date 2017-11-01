@@ -62,13 +62,16 @@ Below are the structs we've declared for you in `bst.h`.
        BSTNode* left;
        BSTNode* right;
     }
-    
+```
+
+Note that when you declare a variable of type struct, you'll need to declare it as `struct BST* bst` - if you forget to include `struct` in your variable declaration, for example, if you try to declare a variable as `BST* bst`, you'll get an error.
+
+```
     // Declaring a pointer to a BST
     struct BST* bst;
     // Declaring a pointer to a BSTNode
     struct BSTNode* node;
 ```
-Note that when you declare a variable of type struct, you'll need to declare it as `struct BST* bst` - if you forget to include `struct` in your variable declaration, for example, if you try to declare a variable as `BST* bst`, you'll get an error.
 
 To access the member of a struct, use the arrow operator `->`. For example, assuming you've declared a variable `struct BST* bst`, then you might access that BST's root like this: `bst->root`.
 
