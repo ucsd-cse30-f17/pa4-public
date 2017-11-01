@@ -235,7 +235,9 @@ Choose two of the above "incorrect implementations." Speculate on the mistake in
 ### 7. Commenting and style guide
 For ARM Assembly code, please refer to PA3's commenting and style guide in the [PA3 Writeup](https://github.com/ucsd-cse30-f17/pa3-support/blob/master/description.pdf).
 
-For C code, you should write method headers and comment roughly every block of code. Inline comments are also fine. 
+For C code, you should write function headers (see `bst_max` for an example) and comment roughly every block of code. Inline comments are also useful if you have a particularly tricky block of code,=.
+
+If you want a style to go by, use `bst_max` and the provided test as examples. Describe each input and the result in a block comment. Indent nested blocks by two spaces each. We found the body of `bst_max` to be simple enough that we didn't need any comments, but found the block comment in the header quite useful.
 
 ### 8. Handin
 Commit and push the _ files to the Github repository that was created for you by 11:59pm on Thursday, November 9. You can push up to one day late for a 20% penalty. After you push, make sure to check on Github that the files are actually there. We will mark all of the student repositories for grading a few minutes after midnight and grade precisely what is there.
@@ -252,7 +254,7 @@ Note that you do not need to turn in `.o` files, and the `.gitignore` file makes
 
 - 25%: Quality of tests, determined by the # of bad implementations caught, and whether they pass on the correct implementation
 - 20%: README
-- 20%: Assembly functions `totalLength` and `count`
-- 35%: Distributed among the BST functions
+- 20%: Assembly functions `totalLength` and `count` (includes points for code style)
+- 35%: Distributed among the BST functions (includes points for code style)
 
-Both your tests and your BST functions can get deductions if Valgrind reports that memory is in use at the end of the program
+Both your tests and your BST functions can get deductions if Valgrind reports that memory is in use at the end of the program, or reports other memory-related errors.
