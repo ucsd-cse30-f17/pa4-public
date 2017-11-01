@@ -175,7 +175,7 @@ E. Does not always remove node.
 F. Structure is right but count is wrong.
 G. Violates a fundamental property of BSTs (is backwards).
 H. Incorrectly identifies smallest/largest nodes in the tree.
-I. Search succeeds when it should not
+I. Search succeeds when it should not.
 J. Total length doesn't sum the lengths of all the nodes' keys.
 ```
 ### 5. Valgrind
