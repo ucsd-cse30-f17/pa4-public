@@ -139,14 +139,19 @@ Your test should have the signature like: void Test<Functiontested>_<TestInput>(
   
 Here is the list of assert functions that CuTest provides:
 void CuAssert(CuTest* tc, char* message, int condition);
+
 void CuAssertTrue(CuTest* tc, int condition);
+
 void CuAssertStrEquals(CuTest* tc, char* expected, char* actual);
+
 void CuAssertIntEquals(CuTest* tc, int expected, int actual);
+
 void CuAssertPtrEquals(CuTest* tc, void* expected, void* actual);
+
 void CuAssertPtrNotNull(CuTest* tc, void* pointer);
 
 To use these assert functions, just call them by passing in tc as the first argument and the other required arguments.
-![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
+![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtEnGdnPtZE1CnvRCcBTbiKgHQfFZks5aArzJwA%3D%3D)
 Some Note:
 
 ### 5. README
