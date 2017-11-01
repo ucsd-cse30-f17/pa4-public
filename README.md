@@ -133,7 +133,9 @@ This function should return the number of nodes in the tree.
 #### 2.8 `int bst_totalLength(struct BST* bst)`
 This function should sum the lengths of all the keys in bst, and return this value (the "total length").
 #### 2.9 `void bst_deleteTree(struct BST* bst)`
-This function deletes the whole bst tree. Think about what was dynamically allocated in the tree, and be sure to deallocate it. You can use valgrind to confirm that you have no memory leaks.
+This function deletes the whole bst tree. Think about what was dynamically allocated in the tree, and be sure to deallocate it. 
+#### Make sure to deallocate the bst itself as well.
+You can use valgrind to confirm that you have no memory leaks.
 
 ### IMPORTANT NOTE:
 Again, **do not** modify the signatures of any of the methods declared in `bst.h`.
