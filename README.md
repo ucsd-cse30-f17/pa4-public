@@ -160,23 +160,23 @@ If one assert fails, the rest in the same test function won't execute
 #### 1. We've provided the `.o` files for ten different implementations of `bst.c`. 9 of the 10 are incorrect implementations, and 1 is correct. Below are ten short descriptions of the errors, in no particular order.
 A. NO ERRORS.
 
-B. `bst_add()` is incorrect.
+B. Builds a BST with no right children.
 
-C. `bst_add()` is incorrect (and violates order BST property).
+C. Does not always add a new node.
 
-D. `bst_remove()` is incorrect (removes incorrect node(s)).
+D. Removes incorrect node(s).
 
-E. `bst_remove()` is incorrect (does not always remove node).
+E. Does not always remove node.
 
-F. `bst_count()` is incorrect.
+F. Structure is right but count is wrong.
 
-G. The bst's structure is incorrect.
+G. Violates a fundamental property of BSTs (is backwards).
 
-H. `bst_max()` and `bst_min()` are incorrect.
+H. Incorrectly identifies smallest/largest nodes in the tree.
 
-I. `bst_contains()` is incorrect.
+I. Search succeeds when it should not.
 
-J. `bst_totalLength()` is incorrect.
+J. Total length doesn't sum the lengths of all the nodes' keys.
 
 Match each of the descriptions to one of the bst#.o files given to you in bad_impls/ directory. You should write good tests in part 4, and use those tests to figure out which files match up to which errors.
 
