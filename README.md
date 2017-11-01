@@ -3,14 +3,16 @@ In this assignment, you will write several C functions and two ARM assembly func
 
 ## Table of Contents:
 0. [Getting Started](https://github.com/ucsd-cse30-f17/pa4-public#0-getting-started)
-1. [Background](https://github.com/ucsd-cse30-f17/pa4-public#1-background) ([BSTs](https://github.com/ucsd-cse30-f17/pa4-public#11-binary-search-trees-a-review-from-cse-12) | [Structs](https://github.com/ucsd-cse30-f17/pa4-public#12-structs) | [Dynamic Memory Allocation](https://github.com/ucsd-cse30-f17/pa4-public#13-dynamic-memory-allocation) | [Valgrind](https://github.com/ucsd-cse30-f17/pa4-public#14-valgrind))
+1. [Background](https://github.com/ucsd-cse30-f17/pa4-public#1-background) ([BSTs](https://github.com/ucsd-cse30-f17/pa4-public#11-binary-search-trees-a-review-from-cse-12) | [Structs](https://github.com/ucsd-cse30-f17/pa4-public#12-structs) | [Dynamic Memory Allocation](https://github.com/ucsd-cse30-f17/pa4-public#13-dynamic-memory-allocation))
 2. [Functions to implement in C](https://github.com/ucsd-cse30-f17/pa4-public#2-functions-to-implement-in-c)
 3. [Functions to implement in Assembly](https://github.com/ucsd-cse30-f17/pa4-public#3-functions-to-implement-in-assembly)
 4. [Testing your functions](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions)
-5. [Compiling your code](https://github.com/ucsd-cse30-f17/pa4-public#5-compiling-your-code)
-6. [README](https://github.com/ucsd-cse30-f17/pa4-public#6-readme)
-7. [Commenting and style guide](https://github.com/ucsd-cse30-f17/pa4-public#7-commenting-and-style-guide)
-8. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#8-handin)
+5. [Valgrind](https://github.com/ucsd-cse30-f17/pa4-public#5-valgrind)
+6. [Compiling your code](https://github.com/ucsd-cse30-f17/pa4-public#6-compiling-your-code)
+7. [README](https://github.com/ucsd-cse30-f17/pa4-public#7-readme)
+8. [Commenting and style guide](https://github.com/ucsd-cse30-f17/pa4-public#8-commenting-and-style-guide)
+9. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#9-handin)
+10. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#9-handin)
 
 ### 0. Getting Started
 The Github Classroom link for your starter code is here:
@@ -80,38 +82,7 @@ Recommended reading: Section [C.8](http://booksite.elsevier.com/9780128000564/co
 
 If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code. The lectures from November 1 and 3 cover the use of dynamic allocation on structs in detail. For this programming assignment, you'll need to both allocate things on the Heap (using `malloc` or `calloc`), and then to deallocate them (using `free`).
 
-
-#### 1.4 Valgrind
-But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
-
-```
-    make vtest
-```
-##### Here are some of the memory errors that you might see during this PA, which valgrind can help you catch:
-
-1. Memory allocated but not freed
-
-![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
-   * Pay attention to the HEAP SUMMARY: "in use at exit: 794 bytes in 94 blocks" and "total heap usage: 129 allocs, 35 frees, 9,682 bytes allocated". You want to see the same number of allocs as there are frees, and 0 bytes in use at exit.
-   
-   * Below the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that memory was allocated for a string in strdup (in bst_makeNode), but was never freed (thus causing a memory leak to occur).
-   
-2. Deallocating memory after it has already been deallocated
-
-![freed_too_many](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind2.png?token=AXdWtGoX6nELPCz_0dkv1bQiXs4dooexks5aArlhwA%3D%3D) 
-   * Pay attention to the HEAP SUMMARY: "in use at exit: 0 bytes in 0 blocks" and "total heap usage: 44 allocs, 46 frees, 371 bytes allocated". You want to see the same number of allocs as there are frees.
-   
-   * Along with the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that there was an "invalid free() / delete / delete[] / realloc()" line 140 in `main.c`.
-
-3. Segfault (which happens when you try to access memory that's off-limits)
-![segfault](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/segfault.png?token=AXdWtEnGdnPtZE1CnvRCcBTbiKgHQfFZks5aArzJwA%3D%3D)
-   * valgrind tells you that in this case, an "Invalid read of size 4" caused the segfault.
-   
-   * It's useful to look at the valgrind output here, to figure out what line caused the segfault: valgrind notes that the segfault happened "at 0x10FC8: bst_contains (bst.c:143)," which was called by "0x10687: main (main.c:29)".
-   
-   * It also says that the "Address 0x8 is not stack'd, malloc'd or (recently) free'd".
-
-   * For example, trying to dereference NULL (i.e. attempting `node->left` or `node->key` when `node == NULL`) will give you a segfault. Sometimes spotting exactly where a segfault occurred can be tricky; valgrind makes it easier to pinpoint the problematic line(s) of code.
+Refer to [Section 5]() (on Valgrind) to read about testing yoru code for memory leaks.
 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
@@ -185,21 +156,13 @@ We've provided the `.o` files for ten different implementations of `bst.c` that 
 
 To make sure your tests are thorough, you will run your tests against these bad implementations to make sure your tests catch each of the bad implementations, and succeed on the correct one.
 
-In order to run against a bad implementation, you can run:
+In order to run against a bad implementation
 
 ```
 make testbst%  (% is 1-10)
 ```
 
-If you want to run against a bad implementation using `valgrind`, by analogy to `vtest` above, you can use
-
-```
-make vtestbst%
-```
-
-The effects of this are like replacing your `bst.c`, `count.s`, and `totalLength.s` with our implementations, and running your tests against them.
-
-Below are 10 descriptions of the implementations. These intentionally **do not** correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
+Below are 10 descriptions of the implementations. These intentionally *do not* correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
 
 ```
 A. NO ERRORS.
@@ -213,8 +176,39 @@ H. Incorrectly identifies smallest/largest nodes in the tree.
 I. Search succeeds when it should not
 J. Total length doesn't sum the lengths of all the nodes' keys.
 ```
+### 5. Valgrind
+But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
 
-### 5. The Makefile
+```
+    make vtest
+```
+##### Here are some of the memory errors that you might see during this PA, which valgrind can help you catch:
+
+1. Memory allocated but not freed
+
+![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
+   * Pay attention to the HEAP SUMMARY: "in use at exit: 794 bytes in 94 blocks" and "total heap usage: 129 allocs, 35 frees, 9,682 bytes allocated". You want to see the same number of allocs as there are frees, and 0 bytes in use at exit.
+   
+   * Below the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that memory was allocated for a string in strdup (in bst_makeNode), but was never freed (thus causing a memory leak to occur).
+   
+2. Deallocating memory after it has already been deallocated
+
+![freed_too_many](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind2.png?token=AXdWtGoX6nELPCz_0dkv1bQiXs4dooexks5aArlhwA%3D%3D) 
+   * Pay attention to the HEAP SUMMARY: "in use at exit: 0 bytes in 0 blocks" and "total heap usage: 44 allocs, 46 frees, 371 bytes allocated". You want to see the same number of allocs as there are frees.
+   
+   * Along with the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that there was an "invalid free() / delete / delete[] / realloc()" line 140 in `main.c`.
+
+3. Segfault (which happens when you try to access memory that's off-limits)
+![segfault](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/segfault.png?token=AXdWtEnGdnPtZE1CnvRCcBTbiKgHQfFZks5aArzJwA%3D%3D)
+   * valgrind tells you that in this case, an "Invalid read of size 4" caused the segfault.
+   
+   * It's useful to look at the valgrind output here, to figure out what line caused the segfault: valgrind notes that the segfault happened "at 0x10FC8: bst_contains (bst.c:143)," which was called by "0x10687: main (main.c:29)".
+   
+   * It also says that the "Address 0x8 is not stack'd, malloc'd or (recently) free'd".
+
+   * For example, trying to dereference NULL (i.e. attempting `node->left` or `node->key` when `node == NULL`) will give you a segfault. Sometimes spotting exactly where a segfault occurred can be tricky; valgrind makes it easier to pinpoint the problematic line(s) of code.
+   
+### 6. The Makefile
 
 We've provided a `Makefile` for you that should make the compilation process simple. Please do not modify the Makefile, but feel free to refer to it. The `test` and `vtest` commands above are one main way you'll interact with the assignment.
 
@@ -226,7 +220,7 @@ The Makefile is compiling your code into an object file called `bst.o`, which yo
 
 It can occasionally be useful to run `make clean`, and then run `make test` or `make vtest` afresh, if the state in your working directory behaves oddly. `make clean` deletes any built files so that the program can be rebuilt from scratch.
 
-### 6. README
+### 7. README
 
 #### 1. Understanding bad implementations
 
@@ -240,14 +234,14 @@ Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, .
 Choose two of the above "incorrect implementations." Speculate on the mistake in the code that could have led to the mistake in the implementation. How might it be fixed?
 
 
-### 7. Commenting and style guide
+### 8. Commenting and style guide
 For ARM Assembly code, please refer to PA3's commenting and style guide in the [PA3 Writeup](https://github.com/ucsd-cse30-f17/pa3-support/blob/master/description.pdf).
 
-For C code, you should write function headers (see `bst_max` for an example) and comment roughly every block of code. Inline comments are also useful if you have a particularly tricky block of code,=.
+For C code, you should write function headers (see `bst_max` for an example) and comment roughly every block of code. Inline comments are also useful if you have a particularly tricky block of code.
 
 If you want a style to go by, use `bst_max` and the provided test as examples. Describe each input and the result in a block comment. Indent nested blocks by two spaces each. We found the body of `bst_max` to be simple enough that we didn't need any comments, but found the block comment in the header quite useful.
 
-### 8. Handin
+### 9. Handin
 Commit and push the _ files to the Github repository that was created for you by 11:59pm on Thursday, November 9. You can push up to one day late for a 20% penalty. After you push, make sure to check on Github that the files are actually there. We will mark all of the student repositories for grading a few minutes after midnight and grade precisely what is there.
 Your handin should include:
 * `bst.c` - which should contain your working implementation of the BST data structure
@@ -258,7 +252,7 @@ Your handin should include:
 
 Note that you do not need to turn in `.o` files, and the `.gitignore` file makes it so they should be ignored in your submission.
 
-### 9. Grading
+### 10. Grading
 
 - 25%: Quality of tests, determined by the # of bad implementations caught, and whether they pass on the correct implementation
 - 20%: README
