@@ -11,11 +11,7 @@ The Github Classroom link for your starter code is here:
 #### 1.3 Valgrind
 
 ### 2. Functions to implement in C
-You will be implementing the following functions in the file named bst.c (we will provide a header file, bst.h, which contains the method signatures that you need). Please **do not modify** the signatures of any of the 9 functions listed below.
-
-However, you'll have some freedom with the signature of helper methods (for example, a helper method for bst_add or bst_remove might be helpful, and you can change the parameters / return type of these helper methods if you like). We've provided a couple example method signatures for helper functions, but you can comment out or modify the helper function signatures.
-
-In bst.c, we've provided the (correct) implementation of bst_max for you. The rest is up to you!
+You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below.
 
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
 This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*.
@@ -26,15 +22,21 @@ This function should remove the BSTNode* with the specified key from bst. Do not
 #### 2.4 `int bst_contains(struct BST* bst, char* key)`
 This function should search the tree for a node with the specified key. Return 1 if the node is found; otherwise, return 0.
 #### 2.5 `char* bst_max(struct BST* bst)`
-This function should return the key of the largest node in the tree (that is, the node with the largest key).
+This function should return the key of the largest node in the tree (that is, the node with the largest key). This function is already implemented (correctly) for you in `bst.c`, which is provided along with `bst.h` in the starter code.
 #### 2.6 `char* bst_min(struct BST* bst)`
 This function should return the key of the smallest node in the tree (that is, the node with the smallest key).
 #### 2.7 `int bst_count(struct BST* bst)`
 This function should return the number of nodes in the tree.
 #### 2.8 `int bst_totalLength(struct BST* bst)`
-This function should return the total length of all the strings in the bst.
+This function should sum the lengths of all the keys in bst, and return this value (the "total length").
 #### 2.9 `void bst_deleteTree(struct BST* bst)`
 This function deletes the whole bst tree. Think about what was dynamically allocated in the tree, and be sure to deallocate it. You can use valgrind to confirm that you have no memory leaks.
+
+Again, **do not** modify the signatures of any of the methods declared in `bst.h`.
+
+However, you will have some freedom with choosing the signatures of helper methods. Some examples of valid helper method signatures are commented out at the top of `bst.c` - feel free to use these. For example, a helper method for bst_add or bst_remove might be helpful, and you can change the parameters / return type of these helper methods if you'd like.
+
+In `bst.c`, we've provided the (correct) implementation of bst_max for you. The rest is up to you!
 
 ### 3. Functions to implement in Assembly
 You will be writing helper functions in ARM assembly, to help you implement bst_count and bst_totalLength.
