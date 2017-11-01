@@ -87,7 +87,7 @@ Refer to [Section 5]() (on Valgrind) to read about testing yoru code for memory 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
 
-You'll want to start from `bst_makeNode()`, as your implementation of `bst_add()` should also depend on this function. To test your methods, refer to [section 4, Testing](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions); using unit tests (testing your methods individually) is a good idea. Once you’ve implemented `bst_makeNode()` and `bst_add()`, you can actually build some trees in your tester. After that, you can write and start testing the other methods.
+You'll want to start from `bst_makeNode`, as the rest of your BST will depend on this function. (For example, you'll need `bst_makeNode` for your implementation of `bst_add`.) You should test each method you write as you go: refer to [section 4, Testing](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions). Using unit tests (testing each method individually) is a good idea. Once you’ve implemented `bst_makeNode()`, test it. Then, you'll want to write `bst_add()`, after which you can actually build some trees in your tester. After that, you can write and start testing the other methods.
 
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
 This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*.
@@ -102,9 +102,9 @@ This function should return the key of the largest node in the tree (that is, th
 #### 2.6 `char* bst_min(struct BST* bst)`
 This function should return the key of the smallest node in the tree (that is, the node with the smallest key).
 #### 2.7 `int bst_count(struct BST* bst)`
-This function should return the number of nodes in the tree.
+This function should just call its recursive helper, `count`, implemented in Assembly (see section 3). The function should return the number of nodes in the tree.
 #### 2.8 `int bst_totalLength(struct BST* bst)`
-This function should sum the lengths of all the keys in bst, and return this value (the "total length").
+This function should just call its recursive helper, `totalLength`, implemented in Assembly (see section 3). The function should sum the lengths of all the keys in bst, and return this value (the "total length").
 #### 2.9 `void bst_deleteTree(struct BST* bst)`
 This function deletes the whole bst tree. Think about what was dynamically allocated in the tree, and be sure to deallocate it. 
 #### Make sure to deallocate the bst itself as well.
