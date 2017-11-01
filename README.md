@@ -74,7 +74,7 @@ But how do you check to make sure that you've allocated and deallocated memory p
 ```
     make vtest
 ```
-##### Here are some of the memory errors that you might see during this PA, which valgrind will help you catch:
+##### Here are some of the memory errors that you might see during this PA, which valgrind can help you catch:
 
 1. Memory allocated but not freed
 ![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
@@ -156,5 +156,13 @@ Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, .
 #### 2. Choose two of the above "incorrect implementations." Give a detailed explanation of the error that is made in each one. Also describe how you could fix it.
 
 ### 6. Commenting and style guide
+For ARM Assembly code, please refer to PA3's commenting and style guide. For C code, 
 
 ### 7. Handin
+Commit and push the _ files to the Github repository that was created for you by 11:59pm on Thursday, November 9. You can push up to one day late for a 20% penalty. After you push, make sure to check on Github that the files are actually there. We will mark all of the student repositories for grading a few minutes after midnight and grade precisely what is there.
+Your handin should include:
+* `bst.c`
+* test code
+* A single `README.txt` file that contains the answers to the README questions above.
+
+Note that you do not need to turn in the `.o` files.
