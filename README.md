@@ -80,7 +80,7 @@ To access the member of a struct via a pointer, use the arrow operator `->`. For
 #### 1.3 Dynamic Memory Allocation
 Recommended reading: Section [C.8](http://booksite.elsevier.com/9780128000564/content/APP0C_C_Programming.pdf) in the textbook. For extra help, you can also refer to [TutorialsPoint](https://www.tutorialspoint.com/cprogramming/c_memory_management.htm).
 
-If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code. The lectures from November 1 and 3 cover the use of dynamic allocation on structs in detail. For this programming assignment, you'll need to both allocate things on the Heap (using `malloc` or `calloc`), and then to deallocate them (using `free`).
+If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code. The lectures from November 1 and 3 cover the use of dynamic allocation on structs in detail. For this programming assignment, you'll need to allocate everything on the Heap (using `malloc` or `calloc`), and then deallocate everything you allocated (using `free`).
 
 Refer to [Section 5]() (on Valgrind) to read about testing yoru code for memory leaks.
 
