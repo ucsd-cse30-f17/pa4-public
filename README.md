@@ -11,7 +11,7 @@ Let's review! A binary search tree (BST) is a data structure that's good for rel
 ##### Properties of a BST
 In a BST, the node with no parent is called the root node. An empty tree is the tree without any nodes (no root node). Each node in the tree has either 0, 1, or 2 children. A node must be larger than its left child but smaller than its right child. (Left child's key < node's key < right child's key.) If any of these conditions are violated, then your tree is not a BST. 
 
-##### This is a valid binary search tree (of `int`s)
+##### This is a valid binary search tree (whose nodes have `int` type keys)
               100
            /        \
           50        200
@@ -21,7 +21,7 @@ In a BST, the node with no parent is called the root node. An empty tree is the 
      10  51   53  191 205  300
  
 
-##### This is a valid binary search tree (of `char *`s)
+##### This is a valid binary search tree (whose nodes have `char *` type keys) - you'll be implementing a BST whose nodes hold `char *`s
               Hello
            /         \
         Dog          Joke
