@@ -1,6 +1,15 @@
 # PA4: Binary Search Tree (in C and Assembly)
 In this assignment, you will write several C functions and two ARM assembly functions. The goal of this assignment is for you to implement Binary Search Tree class using dynamic memory allocation.
 
+## Table of Contents:
+[Getting Started](http://)
+[Background](http://)
+[Functions to implement in C](http://)
+[Functions to implement in Assembly](http://)
+[Testing your code](http://)
+[Compiling your code and running tests](http://)
+
+
 ### 0. Getting Started
 The Github Classroom link for your starter code is here:
 [insert link here](http://)
@@ -158,11 +167,13 @@ If one assert fails, the rest in the same test function won't execute
 ### 5. Compiling your code
 We've provided a Makefile for you that should make the compilation process simple. Please do not modify the Makefile, but feel free to refer to it.
 
-Once you've written `bst.c` and also written some tests in `test.c`, you can try to compile your code and run your tests using the following command:
+Once you've written `bst.c`, you can try to compile your code and run your tests using the following command:
 
 ```
-    make test
+    make bst.o
 ```
+
+To recompile, first run `make clean`, and then run `make bst.o` (or if you've written tests and would like to run them, use `make test`) again. To test with valgrind, run `make vtest`.
 
 ### 6. README
 #### 1. We've provided the `.o` files for ten different implementations of `bst.c`. 9 of the 10 are incorrect implementations, and 1 is correct. Below are ten short descriptions of the errors, in no particular order.
