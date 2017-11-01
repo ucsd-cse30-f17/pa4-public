@@ -66,6 +66,8 @@ Recommended reading: Section [C.8](http://booksite.elsevier.com/9780128000564/co
 
 If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code.
 
+As a brief summary, dynamic memory allocation (which allocates memory in the Heap) is useful because it allows you to work with (add, delete, modify) things in memory at runtime. For this programming assignment, we're asking you to use dynamic memory allocation to allocate things on the Heap (using `malloc` or `calloc`), and then to deallocate them (using `free`).
+
 #### 1.4 Valgrind
 But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
 
@@ -75,8 +77,11 @@ But how do you check to make sure that you've allocated and deallocated memory p
 ##### Here are some of the memory errors that you might see during this PA, which valgrind will help you catch:
 
 1. Segfaults (for example, trying to deallocate memory after it has already been deallocated)
+
 2. Memory allocated but not freed
-![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtFKSCq8k_knQdlnMGF0ATetIP3Zyks5aArTiwA%3D%3D)
+![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
+   1. Pay attention to the HEAP SUMMARY: "in use at exit: 794 bytes in 94 blocks" and "total heap usage: 129 allocs, 35 frees, 9,682 bytes allocated". You want to see the same number of allocs as there are frees, and 0 bytes in use at exit.
+   2. Below the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that memory was allocated for a string in strdup (in bst_makeNode), but was never freed (thus causing a memory leak to occur).
 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
