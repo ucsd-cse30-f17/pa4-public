@@ -253,3 +253,5 @@ Note that you do not need to turn in `.o` files, and the `.gitignore` file makes
 - 20%: README
 - 20%: Assembly functions `totalLength` and `count`
 - 35$: Distributed among the BST functions
+
+Both your tests and your BST functions can get deductions if Valgrind reports that memory is in use at the end of the program
