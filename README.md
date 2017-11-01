@@ -62,9 +62,12 @@ Note that when you declare a variable of type struct, you'll need to declare it 
 To access the member of a struct, use the arrow operator `->`. For example, assuming you've declared a variable `struct BST* bst`, then you might access that BST's root like this: `bst->root`.
 
 #### 1.3 Dynamic Memory Allocation
-Recommended reading: C.8 in the textbook, and also refer to [TutorialsPoint](https://www.tutorialspoint.com/cprogramming/c_memory_management.htm). If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the pa4 starter code that is provided for you.
+Recommended reading: C.8 in the textbook. For extra help, you can also refer to [TutorialsPoint](https://www.tutorialspoint.com/cprogramming/c_memory_management.htm).
+
+If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code.
 
 #### 1.4 Valgrind
+But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in.
 
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
