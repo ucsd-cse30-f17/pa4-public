@@ -92,6 +92,7 @@ But how do you check to make sure that you've allocated and deallocated memory p
 ![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
 
    a. Pay attention to the HEAP SUMMARY: "in use at exit: 794 bytes in 94 blocks" and "total heap usage: 129 allocs, 35 frees, 9,682 bytes allocated". You want to see the same number of allocs as there are frees, and 0 bytes in use at exit.
+   
    b. Below the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that memory was allocated for a string in strdup (in bst_makeNode), but was never freed (thus causing a memory leak to occur).
    
 2. Deallocating memory after it has already been deallocated
@@ -99,6 +100,7 @@ But how do you check to make sure that you've allocated and deallocated memory p
 ![freed_too_many](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind2.png?token=AXdWtGoX6nELPCz_0dkv1bQiXs4dooexks5aArlhwA%3D%3D) 
 
    a. Pay attention to the HEAP SUMMARY: "in use at exit: 0 bytes in 0 blocks" and "total heap usage: 44 allocs, 46 frees, 371 bytes allocated". You want to see the same number of allocs as there are frees.
+   
    b. Along with the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that there was an "invalid free() / delete / delete[] / realloc()" line 140 in `main.c`.
 
 3. Segfault
@@ -107,7 +109,9 @@ But how do you check to make sure that you've allocated and deallocated memory p
 
 A segmentation fault happens when you try to access memory that's off-limits. For example, trying to dereference NULL (i.e. attempting `node->left` or `node->key` when `node == NULL`) will give you a segfault. Sometimes spotting exactly where a segfault occurred can be tricky; valgrind makes it easier to pinpoint the problematic line(s) of code.
    a. valgrind tells you that in this case, an "Invalid read of size 4" caused the segfault.
+   
    b. It's useful to look at the valgrind output here, to figure out what line caused the segfault: valgrind notes that the segfault happened "at 0x10FC8: bst_contains (bst.c:143)," which was called by "0x10687: main (main.c:29)".
+   
    c. It also says that the "Address 0x8 is not stack'd, malloc'd or (recently) free'd".
 
 ### 2. Functions to implement in C
