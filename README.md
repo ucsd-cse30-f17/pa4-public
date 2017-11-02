@@ -164,7 +164,7 @@ To make sure your tests are thorough, you will run your tests against these bad 
 In order to run against a bad implementation
 
 ```
-make testbst%  (% is 1-10)
+make testbst#  (# is 1-10)
 ```
 
 Below are 10 descriptions of the implementations. These intentionally *do not* correspond to the numbers 1-10 for the .o files. Part of your task is to match them in the README below.
@@ -229,7 +229,7 @@ It can occasionally be useful to run `make clean`, and then run `make test` or `
 
 #### 1. Understanding bad implementations
 
-Match each of the descriptions to one of the bst#.o files given to you in bad_impls/ directory. You should write good tests in part 4, and use those tests to figure out which files match up to which errors.
+Match each of the descriptions to one of the bad implementation bst#.o files given to you. You should write good tests in part 4, and use those tests to figure out which files match up to which errors.
 
 Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, ..."), where the first corresponds to bst1, the second to bst2, and so on.
 
