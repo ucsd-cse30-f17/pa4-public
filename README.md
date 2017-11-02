@@ -91,7 +91,7 @@ You'll want to start from `bst_makeNode`, as the rest of your BST will depend on
 
 After `bst_makeNode` is finished and tested, you should be able to test your other functions as you write them.
 
-You can manually create a tree in your tester, without calling on any functions other than `bst_makeNode`. Doing this means that even if your `bst_add` is buggy, you'll still be able to test other methods.
+You can manually create a tree in your tester, without calling on any functions other than `bst_makeNode`. Doing this means that even if your `bst_add` is buggy, you'll still be able to test other methods. (However, if you're confident in your implementation of `bst_add`, feel free to use it when testing your other methods.)
 
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
 This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*.
