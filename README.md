@@ -3,7 +3,7 @@ In this assignment, you will write several C functions and two ARM assembly func
 
 ## Table of Contents:
 0. [Getting Started](https://github.com/ucsd-cse30-f17/pa4-public#0-getting-started)
-1. [Background](https://github.com/ucsd-cse30-f17/pa4-public#1-background) ([BSTs](https://github.com/ucsd-cse30-f17/pa4-public#11-binary-search-trees-a-review-from-cse-12) | [Structs](https://github.com/ucsd-cse30-f17/pa4-public#12-structs) | [Dynamic Memory Allocation](https://github.com/ucsd-cse30-f17/pa4-public#13-dynamic-memory-allocation))
+1. [Background](https://github.com/ucsd-cse30-f17/pa4-public#1-background) ([BSTs](https://github.com/ucsd-cse30-f17/pa4-public#11-binary-search-trees-a-review-from-cse-12) | [Structs](https://github.com/ucsd-cse30-f17/pa4-public#12-structs) | [Dynamic Memory Allocation](https://github.com/ucsd-cse30-f17/pa4-public#13-dynamic-memory-allocation) | [How to call a function in C](https://github.com/ucsd-cse30-f17/pa4-public#14-how-to-call-a-function-in-c))
 2. [Functions to implement in C](https://github.com/ucsd-cse30-f17/pa4-public#2-functions-to-implement-in-c)
 3. [Functions to implement in Assembly](https://github.com/ucsd-cse30-f17/pa4-public#3-functions-to-implement-in-assembly)
 4. [Testing your functions](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions)
