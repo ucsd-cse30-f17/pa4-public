@@ -83,6 +83,9 @@ If you need an idea of how dynamic memory allocation for a struct might work, re
 
 Refer to [Section 5]() (on Valgrind) to read about testing yoru code for memory leaks.
 
+#### 1.4 How to call a function in C
+Note that functions in C do not belong to a "class" like they do in Java. So if you're calling a function in C, instead of writing `returnVal = bst.bst_makeNode(key, NULL, NULL)`, you would just write `returnVal = bst_makeNode(key, NULL, NULL)`. 
+
 ### 2. Functions to implement in C
 You will be implementing the following functions in the file named `bst.c`. We will provide a header file, `bst.h`, which contains the method signatures that you need to implement the BST. Please **do not modify** the signatures of any of the 9 functions listed below, and **do not modify** the `bst.h` file.
 
