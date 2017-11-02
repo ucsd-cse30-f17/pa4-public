@@ -213,7 +213,7 @@ But how do you check to make sure that you've allocated and deallocated memory p
 
    * For example, trying to dereference NULL (i.e. attempting `node->left` or `node->key` when `node == NULL`) will give you a segfault. Sometimes spotting exactly where a segfault occurred can be tricky; valgrind makes it easier to pinpoint the problematic line(s) of code.
    
-### 6. The Makefile
+### 6. Compiling
 
 We've provided a `Makefile` for you that should make the compilation process simple. Please do not modify the Makefile, but feel free to refer to it. The `test` and `vtest` commands above are one main way you'll interact with the assignment.
 
@@ -224,6 +224,8 @@ The Makefile is compiling your code into an object file called `bst.o`, which yo
 ```
 
 It can occasionally be useful to run `make clean`, and then run `make test` or `make vtest` afresh, if the state in your working directory behaves oddly. `make clean` deletes any built files so that the program can be rebuilt from scratch.
+
+As with previous PAs, make sure you're compiling from the `pi-cluster`, but running `git pull`, `git push`, and `git clone` from `ieng6`.
 
 ### 7. README
 
