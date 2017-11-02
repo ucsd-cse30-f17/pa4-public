@@ -128,7 +128,8 @@ You will be writing helper functions in ARM assembly, to help you implement `bst
 It is really important to write good tests to detect errors in your code and make sure they work as expected.
 You will also need your tests to help you figure out what is wrong in the buggy implementations later for the README question. 
 #### You will be graded on your tests based on how many bad implementations your test can catch, described below
-For this assignment, you need to use a simple framework for C called CuTest to write tests. We provide you the following:
+For this assignment, you need to use a simple framework for C called CuTest to write tests. 
+We provide you the following (Please don't change the directory structure):
 ```
 cutest: The folder that contains what you need in order to use CuTest. 
 runtests.c: The main driver that runs all the tests. 
