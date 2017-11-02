@@ -15,7 +15,7 @@ In this assignment, you will write several C functions and two ARM assembly func
 10. [Grading](https://github.com/ucsd-cse30-f17/pa4-public#10-grading)
 
 ### 0. Getting Started
-The Github Classroom link for your starter code is [here](https://classroom.github.com/a/WjFNoGtG).
+The Github Classroom link for your starter code is here: [https://classroom.github.com/a/WjFNoGtG](https://classroom.github.com/a/WjFNoGtG).
 
 ### 1. Background
 #### 1.1 Binary Search Trees: A Review from CSE 12
