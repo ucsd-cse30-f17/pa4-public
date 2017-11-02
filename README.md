@@ -1,5 +1,5 @@
 # PA4: Binary Search Tree (in C and Assembly)
-In this assignment, you will write several C functions and two ARM assembly functions. The goal of this assignment is for you to implement and test a Binary Search Tree “class” using dynamic memory allocation.
+In this assignment, you will write several C functions and two ARM assembly functions. The goal of this assignment is for you to implement and test a Binary Search Tree “class” using dynamic memory allocation. If you are not familiar with C, you can refer to this [textbook](http://booksite.elsevier.com/9780128000564/content/APP0C_C_Programming.pdf)
 
 ## Table of Contents:
 0. [Getting Started](https://github.com/ucsd-cse30-f17/pa4-public#0-getting-started)
