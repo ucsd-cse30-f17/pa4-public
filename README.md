@@ -120,8 +120,10 @@ In `bst.c`, we've provided the (correct) implementation of `bst_max` for you. Th
 
 ### 3. Functions to implement in Assembly
 You will be writing helper functions in ARM assembly, to help you implement `bst_count` and `bst_totalLength`.
-#### 3.1 `int totalLength(struct BSTNode* node)`
-#### 3.2 `int count(struct BSTNode* node)`
+#### 3.1 `int count(struct BSTNode* node)`
+Hint: Recursion is useful. Make sure you're really comfortable with Harris 6.3.7 (making function calls).
+#### 3.2 `int totalLength(struct BSTNode* node)`
+Same hint applies as above.
 
 ### 4. Testing your functions
 It is really important to write good tests to detect errors in your code and make sure they work as expected.
