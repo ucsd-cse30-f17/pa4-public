@@ -130,11 +130,11 @@ You will also need your tests to help you figure out what is wrong in the buggy 
 #### You will be graded on your tests based on how many bad implementations your test can catch, described below
 For this assignment, you need to use a simple framework for C called CuTest to write tests. We provide you the following:
 ```
-cutest: This is the folder that contains all that you need to use CuTest. 
-runtests.c: The main driver to run all tests. 
-test.c: The file where all your tests should be in.
+cutest: The folder that contains what you need in order to use CuTest. 
+runtests.c: The main driver that runs all the tests. 
+test.c: The file where all your tests should be.
 ```
-You only need to modify your test.c to add more tests.
+You only need to modify your `test.c` to add more tests.
 
 Your test should have a signature like this: `void Test<Functiontested>_<TestInput>(CuTest *tc){}`
   
