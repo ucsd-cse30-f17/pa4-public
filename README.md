@@ -82,7 +82,7 @@ Recommended reading: Section [C.8](http://booksite.elsevier.com/9780128000564/co
 
 If you need an idea of how dynamic memory allocation for a struct might work, refer to `TestManualMallocAndFree()` in `test.c` in the provided starter code. The lectures from November 1 and 3 cover the use of dynamic allocation on structs in detail. For this programming assignment, you'll need to allocate everything on the Heap (using `malloc` or `calloc`), and then deallocate everything you allocated (using `free`).
 
-Refer to [Section 5](https://github.com/ucsd-cse30-f17/pa4-public#5-valgrind) (on Valgrind) to read about testing yoru code for memory leaks.
+Refer to [Section 6](https://github.com/ucsd-cse30-f17/pa4-public#6-valgrind) (on Valgrind) to read about testing yoru code for memory leaks.
 
 #### 1.4 How to call a function in C
 Note that functions in C do not belong to a "class" like they do in Java. So if you're calling a function in C, instead of writing `returnVal = bst.bst_makeNode(key, NULL, NULL)`, you would just write `returnVal = bst_makeNode(key, NULL, NULL)`. 
