@@ -96,9 +96,10 @@ After `bst_makeNode` is finished and tested, you should be able to test your oth
 You can manually create a tree in your tester, without calling on any functions other than `bst_makeNode`. Doing this means that even if your `bst_add` is buggy, you'll still be able to test other methods. (However, if you're confident in your implementation of `bst_add`, feel free to use it when testing your other methods.)
 
 **You can assume that the BST will never be NULL**
+**For this assignment, you should allocate everything on the heap**
 
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
-This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*. You can assume that the key will not be NULL.
+This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*. You can assume that the key will not be NULL. **You should allocate the strings on the heap as well. strdup will be helpful**
 #### 2.2 `void bst_add(struct BST* bst, char* key)`
 This function should add a BSTNode* with the specified key to bst. Do nothing if a node with the same key already exists in the tree.
 #### 2.3 `void bst_remove(struct BST* bst, char* key)`
