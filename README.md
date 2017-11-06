@@ -205,9 +205,11 @@ b totalLength
 b <other function name>
 b test.c:45
 ```
-Start running the program in gdb (use `run`). You can use `step`, `stepi` (`si`), or `continue` (`c`) to move through the program.
+Start running the program in gdb (use `run`). You can use `step`, `stepi` (`si`), `next`, or `continue` (`c`) to move through the program.
 ```
 run
+step
+next
 si
 continue
 ```
@@ -219,7 +221,7 @@ p/s node->key
 p/x node->left
 p/s node->left->key
 ```
-Happy debugging!
+Happy debugging! If you'd like to read more about GDB, feel free to refer to this documentation: [https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html)
 
 ### 6. Valgrind
 But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
