@@ -7,12 +7,13 @@ In this assignment, you will write several C functions and two ARM assembly func
 2. [Functions to implement in C](https://github.com/ucsd-cse30-f17/pa4-public#2-functions-to-implement-in-c)
 3. [Functions to implement in Assembly](https://github.com/ucsd-cse30-f17/pa4-public#3-functions-to-implement-in-assembly)
 4. [Testing your functions](https://github.com/ucsd-cse30-f17/pa4-public#4-testing-your-functions)
-5. [Valgrind](https://github.com/ucsd-cse30-f17/pa4-public#5-valgrind)
-6. [Compiling your code](https://github.com/ucsd-cse30-f17/pa4-public#6-compiling)
-7. [README](https://github.com/ucsd-cse30-f17/pa4-public#7-readme)
-8. [Commenting and style guide](https://github.com/ucsd-cse30-f17/pa4-public#8-commenting-and-style-guide)
-9. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#9-handin)
-10. [Grading](https://github.com/ucsd-cse30-f17/pa4-public#10-grading)
+5. [GDB](https://github.com/ucsd-cse30-f17/pa4-public#5-gdb)
+6. [Valgrind](https://github.com/ucsd-cse30-f17/pa4-public#6-valgrind)
+7. [Compiling your code](https://github.com/ucsd-cse30-f17/pa4-public#7-compiling)
+8. [README](https://github.com/ucsd-cse30-f17/pa4-public#8-readme)
+9. [Commenting and style guide](https://github.com/ucsd-cse30-f17/pa4-public#9-commenting-and-style-guide)
+10. [Handin](https://github.com/ucsd-cse30-f17/pa4-public#10-handin)
+11. [Grading](https://github.com/ucsd-cse30-f17/pa4-public#11-grading)
 
 ### 0. Getting Started
 The Github Classroom link for your starter code is here: [https://classroom.github.com/a/WjFNoGtG](https://classroom.github.com/a/WjFNoGtG).
@@ -190,7 +191,37 @@ H. Incorrectly identifies smallest/largest nodes in the tree.
 I. Search succeeds when it should not.
 J. Total length doesn't sum the lengths of all the nodes' keys.
 ```
-### 5. Valgrind
+### 5. GDB
+To get GDB up and running with your test code, use the following commands (layout asm and layout reg will be useful for debugging your two assembly funcs).
+```
+gdb ./test.run
+layout asm
+layout reg
+```
+Set some breakpoints:
+```
+b count
+b totalLength
+b <other function name>
+b test.c:45
+```
+Start running the program in gdb (use `run`). You can use `step`, `stepi` (`si`), or `continue` (`c`) to move through the program.
+```
+run
+si
+continue
+```
+If you encounter a segfault, it can be useful to look at the stack backtrace (just use `backtrace`).
+If you want to print any variable names, you can use `p/x` to print out a hexadecimal value (like an address), `p/s` to print out as a string, or just `p` to print. For example, assuming I have a struct BSTNode called node, I could try some of these commands:
+```
+p/x node
+p/s node->key
+p/x node->left
+p/s node->left->key
+```
+Happy debugging!
+
+### 6. Valgrind
 But how do you check to make sure that you've allocated and deallocated memory properly? That's where Valgrind comes in. After you've written `bst.c` and written some tests (see [section 4](https://github.com/ucsd-cse30-f17/pa4-public/blob/master/README.md#4-testing-your-functions) of this writeup), you can use the following command to run valgrind:
 
 ```
@@ -222,7 +253,7 @@ But how do you check to make sure that you've allocated and deallocated memory p
 
    * For example, trying to dereference NULL (i.e. attempting `node->left` or `node->key` when `node == NULL`) will give you a segfault. Sometimes spotting exactly where a segfault occurred can be tricky; valgrind makes it easier to pinpoint the problematic line(s) of code.
    
-### 6. Compiling
+### 7. Compiling
 
 We've provided a `Makefile` for you that should make the compilation process simple. Please do not modify the Makefile, but feel free to refer to it. The `test` and `vtest` commands above are one main way you'll interact with the assignment.
 
@@ -236,7 +267,7 @@ It can occasionally be useful to run `make clean`, and then run `make test` or `
 
 As with previous PAs, make sure you're compiling from the `pi-cluster`, but running `git pull`, `git push`, and `git clone` from `ieng6`.
 
-### 7. README
+### 8. README
 
 #### 1. Understanding bad implementations
 
@@ -250,14 +281,14 @@ Format your answer as a comma-separated list of the letters (i.e. "B, C, E, D, .
 Choose two of the above "incorrect implementations." Speculate on the mistake in the code that could have led to the mistake in the implementation. How might it be fixed?
 
 
-### 8. Commenting and style guide
+### 9. Commenting and style guide
 For ARM Assembly code, please refer to PA3's commenting and style guide in the [PA3 Writeup](https://github.com/ucsd-cse30-f17/pa3-support/blob/master/description.pdf).
 
 For C code, you should write function headers (see `bst_max` for an example) and comment roughly every block of code. Inline comments are also useful if you have a particularly tricky block of code.
 
 If you want a style to go by, use `bst_max` and the provided test as examples. Describe each input and the result in a block comment. Indent nested blocks by two spaces each. We found the body of `bst_max` to be simple enough that we didn't need any comments, but found the block comment in the header quite useful.
 
-### 9. Handin
+### 10. Handin
 Commit and push the following files to the Github repository that was created for you by 11:59pm on Thursday, November 9. You can push up to one day late for a 20% penalty. After you push, make sure to check on Github that the files are actually there. We will mark all of the student repositories for grading a few minutes after midnight and grade precisely what is there.
 Your handin should include:
 * `bst.c` - which should contain your working implementation of the BST data structure
@@ -268,7 +299,7 @@ Your handin should include:
 
 Note that you do not need to turn in `.o` files, and the `.gitignore` file makes it so they should be ignored in your submission.
 
-### 10. Grading
+### 11. Grading
 
 - 25%: Quality of tests, determined by the # of bad implementations caught, and whether they pass on the correct implementation
 - 20%: README
