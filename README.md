@@ -100,6 +100,8 @@ You can manually create a tree in your tester, without calling on any functions 
 
 **For this assignment, you should allocate everything on the heap**
 
+### Here is a helpful visualization if you are not clear about how BST works! [BST Visualization](http://btv.melezinek.cz/binary-search-tree.html)
+
 #### 2.1 `struct BSTNode* bst_makeNode(char* key, struct BSTNode* left, struct BSTNode* right)`
 This function should use dynamic memory allocation to initialize a Node. Use the parameters (key, left, and right) to initialize the members of the struct BSTNode*. You can assume that the key will not be NULL. **You should allocate the strings on the heap as well. strdup will be helpful**
 #### 2.2 `void bst_add(struct BST* bst, char* key)`
