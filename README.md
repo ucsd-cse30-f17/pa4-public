@@ -163,7 +163,7 @@ Here is the list of assert functions that CuTest provides:
 To use these assert functions, just call them by passing in tc as the first argument and the other required arguments.
 [More info about CuTest](https://github.com/ennorehling/cutest)
 
-![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/testOutput.png?token=AXdWtOWxrRt6SMjwZ-gwcLvVV5cKpvMBks5aA0Y7wA%3D%3D)
+![Sample Output](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-public/master/testOutput.png?token=AXdWtOWxrRt6SMjwZ-gwcLvVV5cKpvMBks5aA0Y7wA%3D%3D)
 
 An important note: If one assert fails, the rest in the same test function won't execute.
 
@@ -235,20 +235,20 @@ But how do you check to make sure that you've allocated and deallocated memory p
 
 1. Memory allocated but not freed
 
-![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
+![needs_to_free](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-public/master/valgrind1.png?token=AXdWtGOEsclwwWBQl-nxSkPliZIhI3Otks5aArYAwA%3D%3D)
    * Pay attention to the HEAP SUMMARY: "in use at exit: 794 bytes in 94 blocks" and "total heap usage: 129 allocs, 35 frees, 9,682 bytes allocated". You want to see the same number of allocs as there are frees, and 0 bytes in use at exit.
    
    * Below the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that memory was allocated for a string in strdup (in bst_makeNode), but was never freed (thus causing a memory leak to occur).
    
 2. Deallocating memory after it has already been deallocated
 
-![freed_too_many](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/valgrind2.png?token=AXdWtGoX6nELPCz_0dkv1bQiXs4dooexks5aArlhwA%3D%3D) 
+![freed_too_many](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-public/master/valgrind2.png?token=AXdWtGoX6nELPCz_0dkv1bQiXs4dooexks5aArlhwA%3D%3D) 
    * Pay attention to the HEAP SUMMARY: "in use at exit: 0 bytes in 0 blocks" and "total heap usage: 44 allocs, 46 frees, 371 bytes allocated". You want to see the same number of allocs as there are frees.
    
    * Along with the HEAP SUMMARY, you'll find the details on where exactly the memory leak occurred. In this screenshot, valgrind sees that there was an "invalid free() / delete / delete[] / realloc()" line 140 in `main.c`.
 
 3. Segfault (which happens when you try to access memory that's off-limits)
-![segfault](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-support/master/segfault.png?token=AXdWtEnGdnPtZE1CnvRCcBTbiKgHQfFZks5aArzJwA%3D%3D)
+![segfault](https://raw.githubusercontent.com/ucsd-cse30-f17/pa4-public/master/segfault.png?token=AXdWtEnGdnPtZE1CnvRCcBTbiKgHQfFZks5aArzJwA%3D%3D)
    * valgrind tells you that in this case, an "Invalid read of size 4" caused the segfault.
    
    * It's useful to look at the valgrind output here, to figure out what line caused the segfault: valgrind notes that the segfault happened "at 0x10FC8: bst_contains (bst.c:143)," which was called by "0x10687: main (main.c:29)".
